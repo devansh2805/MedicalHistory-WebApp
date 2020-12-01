@@ -1,0 +1,23 @@
+.userform {
+    margin: 0 auto;
+    width: 80%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-control {
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.registerCard {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    margin: 0 auto;
+    background-color: rgba(175, 203, 255, 0.4);
+    width: 40%;
+    padding: 30px;
+}
+
+.submitbutton {
+    width: 100%;
+    height: 40px;
+}

@@ -1,0 +1,71 @@
+{% extends "medicalhistoryapp/base.html" %}
+{% block nav %}
+<span class="navbar-text">
+    Hi, {{ username }} you're user id is {{ userId }}
+</span>
+
+<button class="btn btn-danger ml-auto"><a class="logout" href="user/logout">Logout</a></button>
+{% endblock %}
+{% block content %}
+<div class="medical-form">
+    <form id="medform" method="POST" action="">
+        {% csrf_token %}
+        <div class="form-group">
+            Mobile Number
+            {{ medicalForm.phoneNumber }}
+            <br>
+            Gender
+            {{ medicalForm.gender }}
+            <br>
+            Do you have any common Diseases?<br>
+            {% for disease in medicalForm.diseases %}
+            {{ disease }}
+            <br>
+            {% endfor %}
+            <br>
+            Do you have any common Symptoms?<br>
+            {% for symptom in medicalForm.symptoms %}
+            {{ symptom }}
+            <br>
+            {% endfor %}
+            <br>
+            Any Allergy?
+            {{ medicalForm.allergy }}
+            <br>
+            Do you take any Medication?
+            {{ medicalForm.medicationFlag }}
+            <br>
+            Do you consume Tobacco?
+            {{ medicalForm.tobaccoFlag }}
+            <br>
+            Do you drink alcohol?
+            {{ medicalForm.alcoholFlag }}
+            <br>
+            <input value="Submit" class="btn submitbtn" name="medicalform" onclick="formsubmit()">
+        </div>
+    </form>
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    function formsubmit() {
+        swal({
+            title: "Are you sure you want to submit?",
+            text: "Once submitted, you will not be able to edit",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Form Submitted Successfully", {
+                        icon: "success",
+                    }).then( () => {
+                        document.getElementById("medform").submit()
+                    });
+                } else {
+                    swal("You can still edit the form");
+                }
+            });
+    }
+</script>
+{% endblock %}

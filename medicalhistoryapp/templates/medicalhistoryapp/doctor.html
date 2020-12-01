@@ -1,0 +1,64 @@
+{% extends "medicalhistoryapp/base.html" %}
+{% block nav %}
+<span class="navbar-text">
+    Hi, {{ username }} you're user id is {{ userId }}
+</span>
+
+<button class="btn btn-danger ml-auto"><a class="logout" href="user/logout">Logout</a></button>
+{% endblock %}
+{% block content %}
+<div class="searchbar">
+    <form method="GET" action="">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" class="bar" name="search" placeholder="Enter User Id">
+            <button type="submit" class="btn"><i class="fas fa-search"></i></button>
+        </div>
+    </form>
+</div>
+{% if entryFlag %}
+<div class="userInfo">
+    <p>Name: <span>{{ firstname }} {{ lastname }}</span></p>
+    
+    <p>Gender: <span>{{ gender }}</span></p>
+    
+    <p>Phone Number: <span>{{ phonenumber }}</span></p>
+
+    {% if alcohol %}
+        <p>Alcohol Consumer: <span>Yes</span></p>
+    {% else %}
+        <p>Alcohol Consumer: <span>No</span></p>
+    {% endif %}
+
+    {% if tobacco %}
+        <p>Tobacco Consumer: <span>Yes</span></p>
+    {% else %}
+        <p>Tobacco Consumer: <span>No</span></p>
+    {% endif %}
+    
+    {% if medication %}
+        <p>Any Medication Active: <span>Yes</span></p>
+    {% else %}
+        <p>Any Medication Active: <span>No</span></p>
+    {% endif %}
+
+    <p>Diseases: </p>
+    <ul>
+        {% for disease in diseases %}
+            <li>{{ disease }}</li>
+        {% endfor %}
+    </ul>
+    <p>Symptoms: </p>
+    <ul>
+        {% for symptom in symptoms %}
+            <li>{{ symptom }}</li>
+        {% endfor %}
+    </ul>
+    <p>Allergies: <span>{{ allergy }}</span></p>
+</div>
+{% else %}
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "userauthentication/base.html" %}
+{% block content %}
+<br>
+<br>
+<br>
+<div class="registerCard">
+    <h1 style="text-align: center;">User Registeration</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+        <div class="form-group userform">
+            {{ form.username.label }}
+            {{ form.username }}
+
+            {{ form.email.label }}
+            {{ form.email }}
+
+            {{ form.first_name.label }}
+            {{ form.first_name }}
+
+            {{ form.last_name.label }}
+            {{ form.last_name }}
+
+            {{ form.userType.label }}
+            {{ form.userType }}
+
+            {{ form.password1.label }}
+            {{ form.password1 }}
+
+            {{ form.password2.label }}
+            {{ form.password2 }}
+            
+            <input value="Register" type="submit" class="btn btn-primary submitbutton" name="userCreation">
+        </div>
+    </form>
+    {{ form.errors }}
+    <p style="text-align: center;">Already Registered? <a href="{% url 'login' %}">Login</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.logout {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.medical-form {
+    background-color: rgba(191, 252, 198, 0.41);
+    padding: 30px;
+    width: 60%;
+    margin: 20px auto;
+}
+
+.logout:hover {
+    text-decoration: none;
+}
+
+.submitbtn {
+    width: 40%;
+    height: 50px;
+    font-size: 25px !important;
+    color: #fff !important;
+    background-color: #57838D !important;
+}
+
+.searchbar {
+    margin: 20px auto;
+    width: 60%;
+}
+
+.bar {
+    border-radius: 30px;
+    width: 90%;
+    height: 40px;
+    border: 1px solid #dcdcdc;
+    text-indent: 20px;    
+}
+
+.bar:focus {
+    box-shadow: 1px 1px 8px 1px #dcdcdc;
+    outline: none;
+}
+
+.userInfo {
+    margin: 0 auto;
+    background-color: rgba(175, 203, 255, 0.4);
+    width: 40%;
+    padding: 30px;
+}
